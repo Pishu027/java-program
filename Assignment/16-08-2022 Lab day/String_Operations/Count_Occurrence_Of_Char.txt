@@ -1,0 +1,42 @@
+/*write a program count occurrence of each character of the string*/
+package MultithreadingLabQ;
+import java.util.*;
+
+public class Count_Occurrence_Of_Char {
+	static final int Max_char=50;
+	
+	public void count_cccu()
+	{
+		String str;  
+		int i, len;  
+		int counter[] = new int[256];  
+		Scanner scanner = new Scanner(System.in);  
+		System.out.print("Please enter a string: ");  
+		//reading a string from the user  
+		str = scanner.nextLine();  
+		//finds the length of the string  
+		len = str.length();  
+		// loop through the string and count frequency of every character and store it in counter array  
+		for (i = 0; i < len; i++)   
+		{
+			counter[(int) str.charAt(i)]++;  
+		} 
+		//print Frequency of characters  
+		for (i = 0; i < 256; i++)   
+		{
+			if (counter[i] != 0)
+			{
+				//prints frequency of characters      
+		        System.out.println((char) i + " --> " + counter[i]);
+		     }  
+		}  
+	}
+	public static void main(String[]args)
+	{
+		 Count_Occurrence_Of_Char obj=new  Count_Occurrence_Of_Char();
+		 obj.count_cccu();
+		
+	}
+
+}
+	
