@@ -1,0 +1,29 @@
+package File_Handling;
+
+public class Singltoan_class_diaplay
+{
+	public static void main(String[] args) 
+	{
+		// TODO Auto-generated method stub
+		System.out.println("This is my first singtoan class......!");
+		Singltoan_class s=Singltoan_class.use_of_abdemo();
+		Singltoan_class s1=Singltoan_class.use_of_abdemo();
+		Singltoan_class s2=Singltoan_class.use_of_abdemo();
+		
+		System.out.println("hashcode of all singltoan class...:)");
+		System.out.println("Ref"+s.hashCode());
+		System.out.println("Ref"+s1.hashCode());
+		System.out.println("Ref"+s2.hashCode());
+		
+		System.out.println("this is my secong singltoan class....!");
+		Singltoan_class_diaplay obj=new Singltoan_class_diaplay();
+		Singltoan_class_diaplay obj1=new Singltoan_class_diaplay();
+		Singltoan_class_diaplay obj11=new Singltoan_class_diaplay();
+		
+		System.out.println("hash code of secong singltoan class....:)");
+		System.out.println("Ref"+obj.hashCode());
+		System.out.println("Ref"+obj1.hashCode());
+		System.out.println("Ref"+obj11.hashCode());
+	}
+
+}
