@@ -1,0 +1,40 @@
+/*write a program to accept a string from the user and accept a character from the user and 
+remove all occurrence of a given character from input string in java*/
+package MultithreadingLabQ;
+import java.util.Scanner;
+
+public class Remove_Occurrence_str 
+{
+	//creating a variables
+	String str;
+	char ch;
+	
+	//delete occurrence method
+	public void remove_accu()
+	{
+		//create Scanner for taking input from the user
+		Scanner sc=new Scanner(System.in);
+		
+		//accept string from the user
+		System.out.println("Enter the String:");
+		str=sc.nextLine();
+		
+		//accept deleting character from the user
+		System.out.println("Enter the character which you want to delete:");
+		ch=sc.next().charAt(0);
+		
+		//replace string
+		String s=str.replace(ch,Character.MIN_VALUE);
+		
+		//print string after deleting
+		System.out.println("\nFinal string after deleting:"+s);
+	}
+
+	public static void main(String[]args)
+	{
+		//creating object of the class
+		Remove_Occurrence_str obj=new Remove_Occurrence_str();
+		obj.remove_accu();
+	}
+
+}
