@@ -1,0 +1,23 @@
+package File_Handling;
+
+public class Singltoan_class
+{
+	private static Singltoan_class sc=null;
+	
+	//create constructor of the class
+	private Singltoan_class()
+	{
+		System.out.println("Hii from the constructor\n This is my singltoan alasss......!");
+	}
+	
+	public static  Singltoan_class  use_of_abdemo()
+	{
+		if(sc==null)
+		{
+			sc=new Singltoan_class();
+		}
+		return sc;
+		
+	}
+
+}
