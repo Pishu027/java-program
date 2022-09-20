@@ -1,0 +1,121 @@
+/*write a program to accept name, Email, Phone Number, Percentage from the user and store the data using arraylist
+Accept name from the user and remove all the data from the list and display the output. 
+and also perform the searching operation with the help of the name.
+*/
+package Collections;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.*;
+
+import javax.swing.text.html.HTMLDocument.Iterator;
+
+public class Delete_data_by_name {
+		String name,email,n1;
+		double per;
+		int size,i,j,k,ph,m,n,temp;
+		Scanner sc=new Scanner(System.in);
+		ArrayList<String> al=new ArrayList<>(size);	//ArrayList1...................
+		ArrayList<String> al1=new ArrayList<>(size);//ArrayList2.............
+		ArrayList<Integer> al2=new ArrayList<>(size);
+		ArrayList<Double> al3=new ArrayList<>(size);
+		
+		
+		public static void main(String args[]) 
+		{
+			Delete_data_by_name ob=new Delete_data_by_name();
+		    ob.aceept_and_stored();
+		    ob.delete_data_by_name();
+			
+		}
+		
+		public void aceept_and_stored() 
+		{
+			
+			System.out.print("Enter the number of data:");
+			size=sc.nextInt();
+			
+			for(k=0;k<size;k++)
+			{
+				System.out.print("Enter the Details:"); //taking all input from user
+				
+				System.out.print("\nEnter your name:");
+				name=sc.next();
+				
+				System.out.print("Enter your E-mail:");
+				email=sc.next();
+				
+				System.out.print("Enter your Phone no:");
+				ph=sc.nextInt();
+				
+				System.out.print("Enter your Percentage :");
+				per=sc.nextDouble();
+				
+				//storing input in array list
+				al.add(name);
+				al1.add(email);
+				al2.add(ph);
+				al3.add(per);
+				
+				System.out.println("Details of :"+name);
+				
+				//display all details of user
+				for (i=0; i<al.size();i++)
+				{
+                                   String curr = al.get(i);
+		                   System.out.println(curr);
+		                }
+				    
+				for(j=0;j<al1.size();j++)
+				{
+				    String d=al1.get(j);
+			            System.out.println(d);
+		                }
+				    
+				for(m=0;m<al2.size();m++)
+				{
+				    int  a=al2.get(m);
+			            System.out.println(a);
+			        
+				}
+				    
+				for(n=0;n<al3.size();n++)
+				{
+		                    double b=al3.get(n);
+			            System.out.println(b);
+			        }
+				
+				System.out.print("==============***======================***===================");
+			}
+		
+	}
+	public void delete_data_by_name()
+	{
+		System.out.print("\nDelete the data by name:");
+		
+		//Enter the name for which you want to delete all the data
+		System.out.println("Enter the name:");
+		name=sc.next();
+		
+		//If the list contains this name, then perform the delete operation.
+		//Print otherwise This name is not in the list
+		if(al.contains(name))
+		{
+			System.out.println("Index:"+al.indexOf(name));
+			temp=al.indexOf(name);
+			al.remove(temp);
+			al1.remove(temp);
+			al2.remove(temp);
+			al3.remove(temp);
+			System.out.println("Your data is successfully deleted......!");
+		}
+		else
+		{
+			System.out.println("Does'nt find tha data! please try again......!");
+		}
+			System.out.println("data"+al);
+			System.out.println("data"+al1);
+			System.out.println("data"+al2);
+			System.out.println("data"+al3);
+	}		
+}
