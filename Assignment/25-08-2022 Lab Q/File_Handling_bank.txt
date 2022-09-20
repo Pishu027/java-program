@@ -1,0 +1,96 @@
+/*Write a Java Program to Create a new text file and read the input from the user Name, Phone No, Bank name,
+   Account No, Type of Account ,Amount for FD, Duration for FD , Calculate the amount and display the final amount.
+   Save the input in the text file and also store the FD imformation.
+*/
+package File_Handling;
+import java.util.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class File_Handling_bank 
+{
+	//import Scanner for taking input from user
+	Scanner sc=new Scanner(System.in);
+	
+	public void create_file() throws IOException
+	{
+		
+		//create file
+		File file=new File("C:\\Users\\rahul\\OneDrive\\Files.java\\bank.txt");
+		file.createNewFile();
+		
+		System.out.print("Youre file is successfully created..:)");
+		
+		//perform write operation in the file
+		FileWriter fw=new FileWriter(file);
+		
+		System.out.print("Enter youre user name:");
+		String user_name=sc.nextLine();
+		fw.write("Name:-"+user_name);
+		
+
+		System.out.print("Enter youre phone no:");
+		int phone_no=sc.nextInt();
+		fw.write("Phone no:-"+phone_no);
+		
+		System.out.print("Enter your bank name:");
+		String bank_name=sc.nextLine();
+		fw.write("Bank Name:-"+bank_name);
+		
+		System.out.print("Enter youre account no:");
+		int account_no=sc.nextInt();
+		fw.write("Account no:-"+account_no);
+		
+		System.out.print("Enter your account type:");
+		String acc_type=sc.nextLine();
+		fw.write("Account_type:-"+acc_type);
+		
+		System.out.print("Enter ypur fix deposite amount:");
+		int fd_amount=sc.nextInt();
+		fw.write("FD Amount:-"+fd_amount);
+		
+		System.out.print("Enter your fix deposite rate of interest:");
+		double rate=sc.nextInt();
+		fw.write("Rate of Interest:-"+rate);
+		
+		System.out.print("Enter your time of FD:");
+		int time=sc.nextInt();
+		fw.write("Time:-"+time);
+		
+		double simple_int=fd_amount*(1+(rate*time))/100;
+		fw.write("Interest:-"+simple_int);
+		fw.write("Total amount:-"+(fd_amount-simple_int));
+		
+		fw.close();
+		System.out.println("Success....:)");
+		
+	}
+	
+	public void read() throws IOException
+	{
+		//perform read operation from the file
+		File f=new File("C:\\Users\\rahul\\OneDrive\\Files.java\\bank.txt");
+		FileReader fr=new FileReader(f);
+		
+		int i=0;
+		while((i=fr.read()) != -1)
+		{
+			System.out.print((char)i);
+		}
+	}
+	public static void main(String[]args) throws IOException
+	{
+		//create object of the class
+		File_Handling_bank  obj=new File_Handling_bank();
+		
+		//calling  methods through object
+		obj.create_file();
+		obj.read();
+		
+	}
+}
