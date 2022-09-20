@@ -1,0 +1,36 @@
+/*write a program count vowels from the string*/
+package MultithreadingLabQ;
+
+public class Count_vowels_str {
+	 public static void count_vowal()
+	 {    
+         
+	        //Counter variable to store the count of vowels and consonant    
+	        int v_count = 0;  
+	            
+	        //Declare a string    
+	        String str = "This is a really simple sentence";    
+	            
+	        //Converting entire string to lower case to reduce the comparisons    
+	        str = str.toLowerCase();    
+	            
+	        for(int i = 0; i < str.length(); i++)
+	        {    
+	            //Checks whether a character is a vowel    
+	            if(str.charAt(i) == 'a' || str.charAt(i) == 'e' || str.charAt(i) == 'i' || str.charAt(i) == 'o' || str.charAt(i) == 'u') 
+	            {    
+	                //Increments the vowel counter    
+	                v_count++;    
+	            }    
+	        }    
+	        System.out.println("Number of vowels: " + v_count);    
+	         
+	 } 
+	 public static void main(String[]args)
+	 {
+		 Count_vowels_str obj=new  Count_vowels_str();
+		 obj.count_vowal();
+	 }
+}   
+
+
