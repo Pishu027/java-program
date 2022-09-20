@@ -1,0 +1,163 @@
+/*Write a program to accept name from the user accordingly create the file, the no of file creation
+    will bw depend upon thw user.Accept the data from the user and store the data from the file which is 
+    selected by the user, and also perform the delete opetaion using file.
+*/
+package File_Handling;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+
+public class User_file_operations 
+{
+	
+	public static  void create() throws IOException
+	{
+		//taking file name input from user
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter your file name:");
+		String f_name=sc.nextLine();
+		
+		//create file
+		File file=new File("C:\\Users\\rahul\\OneDrive\\Files.java\\"+f_name);
+		file.createNewFile();
+		
+		System.out.println("Your file is successfully created...:)File name:"+f_name);	
+	}
+	public static void write() throws IOException
+	{
+		//taking file name input from user
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter yor file name in which you want to write:");
+		String w=sc.nextLine();
+		
+		File obj=new File("C:\\Users\\rahul\\OneDrive\\Files.java\\"+w);
+		
+		//if file is exists then perform write operation in the file
+		//else print file not found
+		if(obj.exists())
+		{
+			FileWriter fw=new FileWriter(obj);
+			System.out.println("Enter your data in the file:");
+			String wr=sc.nextLine();
+			fw.write(wr);
+			fw.close();
+			System.out.println("Your data is succesfully write int this file:"+wr);
+			
+		}
+		else
+		{
+			System.out.println("Sorry file not found.......!");
+		}
+	}
+	public static void read() throws FileNotFoundException
+	{
+		//taking file name input from user
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter your file name which you want to read:");
+		String read=sc.nextLine();
+		
+		File obj=new File("C:\\Users\\rahul\\OneDrive\\Files.java\\"+read);
+		
+		//if file is exists then perform read operation in this file
+		//otherwise print file not found
+		if(obj.exists())
+		{
+			Scanner r=new Scanner(obj);
+			while(r.hasNext())
+			{
+				String data=r.nextLine();
+				System.out.println("file data:"+data);
+			}
+			
+		}
+		else
+		{
+			System.out.println("Sorry file not found......!");
+		}
+		
+	}
+	public static void delete()
+	{
+		//taking file name input from user
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter yor file name which you want to delete:");
+		String del=sc.nextLine();
+		
+		File obj=new File("C:\\Users\\rahul\\OneDrive\\Files.java\\"+del);
+		
+		//if file is exists perform delete operation in this file
+		//otherwise print file not found
+		if(obj.exists())
+		{
+			obj.delete();
+			System.out.println("Your file is successfully deleted.....!");
+		}
+		else
+		{
+			System.out.println("sorry file not found.....!");
+		}
+		
+	}
+	
+	public static void use_details() throws IOException
+	{
+		Scanner sc=new Scanner(System.in);
+		char choice;
+		
+		do
+		{
+			//give choice to user which no operation they want to perform
+			System.out.println("\n1.create a file\n2.write in a file\n3.read the file\n4.delete the file");
+			System.out.println("Enter no which no operation you want to performe:");
+		
+			int ch=sc.nextInt();
+			
+			switch(ch)
+			{
+			case 1:create();//if user choose 1 then create operation will be perform
+			       break;
+			case 2:write();//if user choose 2 then write operation will be perform
+	               break;
+			case 3:read();//if user choose 3 then read operation will be perform
+			       break;
+			case 4:delete();//if user choose 4 then delete operation will be perform
+			       break;
+			default:
+				//if user choose out of this then print invalid input
+				System.out.println("Invalid input........!");
+				
+			}
+			//if user want to perform another operation then user will choose yes otherwise choose no
+			System.out.println("Do you want to perform that operation again:Y/N");
+			choice=sc.next().charAt(0);
+		}
+		while(choice == 'Y' || choice == 'y');
+	}
+	public static void main(String[]args) throws IOException
+	{
+		//create object of the class
+		User_file_operations obj1=new User_file_operations();
+		obj1.use_details();
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
