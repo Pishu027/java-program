@@ -1,0 +1,37 @@
+/*Write a program to accept full name form the user and display the abbreviations of the first and middle names except
+ * the last name which is displayed as it is. EG: Name:Manoj Rakesh Gupta  . (M.R.Gupta)*/
+package MultithreadingLabQ;
+import java.io.*;
+
+public class Abbreviated_name {
+	public void a_name() throws Exception 
+	{
+		//taking input from user
+		 BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+		
+		//taking name
+		System.out.println("Enter your First name");
+		char  first_name=br.readLine().charAt(0);
+		
+		//taking middle name
+		System.out.println("Enter your middle name");
+		char mid_name=br.readLine().charAt(0);
+		
+		//taking last name
+		System.out.println("Enter your last name");
+		String last_name=br.readLine();
+		
+		//print Abbreviated name
+		System.out.println("\nAbbreviated name:"+first_name+"."+mid_name+"."+last_name);
+		
+	}
+	public static void main(String[]args) throws Exception
+	{
+		//creating object of the class
+		Abbreviated_name obj=new Abbreviated_name();
+		
+		//calling Abbreviated method
+		obj.a_name();
+	}
+
+}
