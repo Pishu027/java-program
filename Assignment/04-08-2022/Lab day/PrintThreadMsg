@@ -1,0 +1,38 @@
+package MultithreadingLabQ;
+
+public class PrintThreadMsg extends Thread{
+	int count;
+	String msg="";
+	
+	//constructor of the thread class
+	PrintThreadMsg (String msg)
+	{
+		this.msg=msg;
+	}
+	//create run method of the thread class
+	public void run()
+	{
+		try
+		{
+			//use the while until the condithin is true print the msg
+			while(true)
+			{
+				System.out.println(msg+"Hello.......!");
+				Thread.sleep(300);
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[]args)
+	{
+		//thread of the class
+		PrintThreadMsg Thread1=new PrintThreadMsg("Running Thread....!");
+		PrintThreadMsg Thread2=new PrintThreadMsg ("Running Thread....!");
+		Thread1.start();
+		Thread2.start();
+	}
+}
