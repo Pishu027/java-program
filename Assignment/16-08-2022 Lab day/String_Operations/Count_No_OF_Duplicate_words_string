@@ -1,0 +1,35 @@
+/* write a program count number of duplicate  world in string*/
+package MultithreadingLabQ;
+
+public class Count_No_OF_Duplicate_words_string {
+	
+	//count worlds method
+	static int count_words(String str)
+	{
+		//create variable
+		int count=0;
+		
+		char ch[]=new char[str.length()];
+		
+		//count string length
+		for(int i=0;i<str.length();i++)
+		{
+			ch[i]=str.charAt(i);
+			
+			if(((i>0)&&(ch[i]!=' ')&&(ch[i-1]==' ')) || ((ch[0]!=' ')&&(i==0)))
+				count++;
+		}
+		return count;
+		
+	}
+	public static void main(String[]args)
+	{
+		//create string
+		String str="Today is my day";
+		
+		//print count words
+		System.out.println(count_words(str)+" words");
+		
+	}
+
+}
