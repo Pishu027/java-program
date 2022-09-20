@@ -1,0 +1,73 @@
+/*write a program to find second minimum and maximum element of the array*/
+package MultithreadingLabQ;
+
+import java.util.Scanner;
+
+public class Array_sec_max_and_min 
+{	
+	int i,max,min,sec_max,sec_min,size;//Declaring variables here
+	int arr[];
+	Scanner sc=new Scanner(System.in);
+	
+	public void accept()
+	{
+		System.out.println("enter the size of the array");//taking the size of array from user
+		size=sc.nextInt();
+		
+	    int[] arr=new int[size];
+		 
+		System.out.println("Enter the Elements of the array");//enter elements here 
+		for(i=0;i<size;i++)
+		{
+			arr[i]=sc.nextInt();
+		}
+	
+		System.out.println("youre array are:");
+		for(i=0;i<size;i++)
+		{
+			System.out.println(arr[i]);//printg the array elements here
+		}
+		max=arr[0];
+		sec_max=arr[0];
+		min=arr[0];
+		sec_min=arr[0];
+		
+		//perform find second max operations here
+		for(i=0;i<size;i++)
+		{
+			if(arr[i] > max)
+			{
+				sec_max=max;
+				max=arr[i];
+			}
+			else if(arr[i] > sec_max)
+			{
+				sec_max=arr[i];
+			}
+		}
+		//perform find second min operations here
+		for(i=0;i<size;i++)
+		{
+			if(arr[i] < min)
+			{
+				sec_min=min;
+				min=arr[i];
+			}
+			else if(arr[i] < sec_min)
+			{
+				sec_min=arr[i];
+			}	
+		}
+		System.out.println("second maximum value is:"+sec_max);
+		System.out.println("second minimum value is:"+sec_min);
+	}
+	public static void main(String[]args)
+	{
+		Array_sec_max_and_min obj=new Array_sec_max_and_min();
+		obj.accept();
+		
+
+	}
+	
+
+}
